@@ -13,18 +13,27 @@ import { Wishlist } from './wishlists/wishlist.entity';
 import { Offer } from './offers/offer.entity';
 import { HashModule } from './hash/hash.module';
 import { AuthModule } from './auth/auth.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'student',
-      password: 'student',
-      database: 'nest_project',
-      entities: [User, Wish, Wishlist, Offer],
-      synchronize: true,
+    ConfigModule.forRoot({
+      isGlobal: true, // делает модуль доступным во всем приложении
+      envFilePath: '../.env', // можно указать путь к другому файлу
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        type: 'postgres',
+        host: configService.get('POSTGRES_HOST'),
+        port: 5432,
+        username: configService.get('POSTGRES_USER'),
+        password: configService.get('POSTGRES_PASSWORD'),
+        database: configService.get('POSTGRES_DB'),
+        entities: [User, Wish, Wishlist, Offer],
+        synchronize: true,
+      }),
     }),
     WishesModule,
     WishlistsModule,
