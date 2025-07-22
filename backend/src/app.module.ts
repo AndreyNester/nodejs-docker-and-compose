@@ -18,15 +18,15 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true, // делает модуль доступным во всем приложении
-      envFilePath: '../.env', // можно указать путь к другому файлу
+      isGlobal: true,
+      envFilePath: '../.env',
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        host: configService.get('POSTGRES_HOST'),
+        host: 'localhost',
         port: 5432,
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
