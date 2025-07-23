@@ -1,7 +1,7 @@
 services:
   backend:
     container_name: backend-container-prod
-    # image: backend-image-dev
+    image: backend-image-prod
     build:
       context: backend
       dockerfile: Dockerfile.pub
@@ -13,7 +13,7 @@ services:
     restart: always
   frontend:
     container_name: frontend-container-prod
-    # image: frontend-image-dev
+    image: frontend-image-prod
     build:
       context: frontend
       dockerfile: Dockerfile.pub
