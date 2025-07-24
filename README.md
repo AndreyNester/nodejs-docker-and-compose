@@ -5,7 +5,7 @@
 ## Общая информация
 
 ```
-IP адрес 89.169.186.53
+IP адрес 89.169.186.53 // <-- Открвать в браузере
 Frontend https://nesterok.kp.nomorepartiessbs.ru
 Backend https://api.nesterok.kp.nomorepartiessbs.ru
 ```
