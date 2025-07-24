@@ -8,7 +8,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:3000',
-      'https://api.nesterok.kp.nomorepartiessbs.ru',
+      'https://nesterok.kp.nomorepartiessbs.ru',
     ],
     credentials: true,
   });
