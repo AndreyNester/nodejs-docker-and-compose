@@ -5,9 +5,9 @@
 ## Общая информация
 
 ```
-IP адрес x.x.x.x
-Frontend https://...
-Backend https://...
+IP адрес 89.169.186.53
+Frontend https://nesterok.kp.nomorepartiessbs.ru
+Backend https://api.nesterok.kp.nomorepartiessbs.ru
 ```
 
 ## Поднятие бэка и фронта локально
