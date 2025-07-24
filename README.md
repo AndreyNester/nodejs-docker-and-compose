@@ -8,8 +8,20 @@
 docker compose up --build
 ```
 
-если что-то не так идет то
+### если что-то не так идет то
 
 ```
 docker compose down && docker compose up --build
+```
+
+## Для прода почти тоже самое
+
+```
+docker compose -f docker-compose.pub.yaml up --build
+```
+
+### если что-то не так идет то
+
+```
+docker compose down && docker compose -f docker-compose.pub.yaml up --build
 ```
